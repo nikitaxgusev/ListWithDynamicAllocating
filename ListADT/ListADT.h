@@ -23,7 +23,7 @@ public:
 	//List manipulation operations
 	void insert(const DataType &newDataItem);	//Insert after cursor
 	void remove();								//Remove Data item
-	//void replace(const DataType &newDataItem);	//Replace data item
+	void replace(const DataType &newDataItem);	//Replace data item
 
 
 	//List status operations 

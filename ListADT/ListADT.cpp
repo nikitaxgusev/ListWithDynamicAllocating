@@ -10,25 +10,31 @@ ListADT::ListADT(int maxNumber):cursor(0),size(0)
 
 ListADT::~ListADT()
 {
-	delete dataItems;
+	delete [] dataItems;
 }
 
 void ListADT::insert(const DataType & newDataItem)
 {
 	if (size + 1 <= maxSize) 
 	{
-	
-		dataItems[cursor] = newDataItem;
+		dataItems[size] = newDataItem;
 		size++;
-		cursor++;
 	}
-
 }
 
 void ListADT::remove()
 {
 	if (size - 1 >= 0)
 		cursor--;
+}
+
+void ListADT::replace(const DataType & newDataItem)
+{
+	if (size + 1 <= maxSize)
+	{
+		dataItems[cursor] = newDataItem;
+		cursor++;
+	}
 }
 
 bool ListADT::isEmpty() const
@@ -81,9 +87,7 @@ DataType ListADT::getCursor()
 {
 	if (!isEmpty())
 	{
-		//std::cout << "C: " << cursor << std::endl; //правильный результат
-	//cursor++;
-		return dataItems[cursor]; // возвращает мусор
+		return dataItems[cursor];
 	}
 	else
 	{
